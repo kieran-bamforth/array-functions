@@ -2,6 +2,8 @@
 
 namespace KieranBamforth\ArrayFunctions;
 
+use KieranBamforth\ArrayFunctions\Exception\FlattenArrayException;
+
 class ArrayFunctions
 {
     /**
@@ -13,11 +15,17 @@ class ArrayFunctions
      */
     public function flatten(array $input)
     {
+        if ($this->isArrayAssociative($input)) {
+            throw new FlattenArrayException();
+        }
+
         $flattenedArray = [];
 
         foreach ($input as $value) {
             if (is_array($value)) {
+
                 $flattenedArray = array_merge($flattenedArray, $this->flatten($value));
+
                 continue;
             }
 

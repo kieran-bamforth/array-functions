@@ -12,6 +12,7 @@ class ArrayFunctionsTest extends \PHPUnit_Framework_TestCase
     {
         $this->arrayFunctions = new ArrayFunctions();
     }
+
     /**
      * @dataProvider flattenArrayDataProvider
      *
@@ -46,6 +47,13 @@ class ArrayFunctionsTest extends \PHPUnit_Framework_TestCase
             [$test2Input, $test2ExpectedOutput],
             [$test3Input, $test3ExpectedOutput]
         ];
+    }
+
+    public function testFlattenArrayAssociative()
+    {
+        $this->setExpectedException('\KieranBamforth\ArrayFunctions\Exception\FlattenArrayException');
+
+        $this->arrayFunctions->flatten(['key' => 'value', 1]);
     }
 
     /**
