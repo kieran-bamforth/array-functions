@@ -9,7 +9,9 @@ class ArrayFunctions
     /**
      * Flattens all of a multidimensional array's values into a single array.
      *
-     * @param  array $input The multidimensional array to flatten.
+     * @param array $input The multidimensional array to flatten.
+     *
+     * @throws FlattenArrayException If an associative array is passed.
      *
      * @return array
      */
