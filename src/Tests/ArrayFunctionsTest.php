@@ -20,11 +20,13 @@ class ArrayFunctionsTest extends \PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testFlattenArray(array $expectedOutput, array $input)
+    public function testFlattenArray(array $input, array $expectedOutput)
     {
+        $actualOutput = $this->arrayFunctions->flatten($input);
+
         $this->assertEquals(
             $expectedOutput,
-            $this->arrayFunctions->flatten($input)
+            $actualOutput
         );
     }
 
@@ -35,6 +37,30 @@ class ArrayFunctionsTest extends \PHPUnit_Framework_TestCase
 
         return [
             [$test1Input, $test1ExpectedOutput]
+        ];
+    }
+
+    /**
+     * @dataProvider isArrayAssociativeDataProvider
+     *
+     * @param $expectedOutput
+     * @param array $input
+     *
+     * @return void
+     */
+    public function testIsArrayAssociative(array $input, $expectedOutput)
+    {
+        $this->assertEquals(
+            $expectedOutput,
+            $this->arrayFunctions->isArrayAssociative($input)
+        );
+    }
+
+    public function isArrayAssociativeDataProvider()
+    {
+        return [
+            [[1,2,3], false],
+            [['key' => 'value', 1], true]
         ];
     }
 }
