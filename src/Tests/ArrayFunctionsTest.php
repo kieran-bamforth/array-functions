@@ -6,6 +6,12 @@ use KieranBamforth\ArrayFunctions\ArrayFunctions;
 
 class ArrayFunctionsTest extends \PHPUnit_Framework_TestCase
 {
+    private $arrayFunctions;
+
+    public function setup()
+    {
+        $this->arrayFunctions = new ArrayFunctions();
+    }
     /**
      * @dataProvider flattenArrayDataProvider
      *
@@ -16,11 +22,9 @@ class ArrayFunctionsTest extends \PHPUnit_Framework_TestCase
      */
     public function testFlattenArray(array $expectedOutput, array $input)
     {
-        $arrayFunctions = new ArrayFunctions();
-
         $this->assertEquals(
             $expectedOutput,
-            $arrayFunctions->flatten($input)
+            $this->arrayFunctions->flatten($input)
         );
     }
 
