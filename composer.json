@@ -1,0 +1,19 @@
+{
+    "name": "kieranbamforth/array-functions",
+    "description": "Provides extended functionality for arrays.",
+    "require-dev": {
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~4.0"
+    },
+    "license": "GNU",
+    "authors": [
+        {
+            "name": "Kieran Bamforth",
+            "email": "hello@kieranbamforth.me"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": { "KieranBamforth\\ArrayFunctions\\": "src" }
+    }
+}
