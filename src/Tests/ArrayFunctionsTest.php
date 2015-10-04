@@ -35,8 +35,16 @@ class ArrayFunctionsTest extends \PHPUnit_Framework_TestCase
         $test1Input = [[1,2,[3]],4];
         $test1ExpectedOutput = [1,2,3,4];
 
+        $test2Input = [[1,2,[3],4],4];
+        $test2ExpectedOutput = [1,2,3,4,4];
+
+        $test3Input = [];
+        $test3ExpectedOutput = [];
+
         return [
-            [$test1Input, $test1ExpectedOutput]
+            [$test1Input, $test1ExpectedOutput],
+            [$test2Input, $test2ExpectedOutput],
+            [$test3Input, $test3ExpectedOutput]
         ];
     }
 
